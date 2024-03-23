@@ -91,6 +91,11 @@ class Board:
         self.player_create_ships(self.player_board, player_name)
 
         while True:
+            """
+            Creates loop checking for coorinatest given by player to check for if
+            a ship is hit or not
+            prints if already chosen before
+            """
             self.print_board(self.player_guess_board, player_name, "This is your board: ")
             self.print_board(self.computer_guess_board, "ComputerBoard", "Computer")
 
@@ -112,4 +117,22 @@ class Board:
                 print("Congratulations, you win!")
                 break
 
-            
+            while True:
+                """
+                Creates loop to check for hit ships or not
+                """
+                row, column = randint(0,7), randint(0,7)
+                while self.computer_guess_board[row][column] == "-":
+                    row, column = randint(0,7), randint(0,7)
+                if self.player_board[row][column] == "X":
+                    self.computer_guess_board[row][column] = "X"
+                    break
+                else:
+                    self.computer_guess_board[row][column] = "-"
+                    break
+
+            if self.count_hit_ships(self.computer_guess_board) == 5:
+                print("Unlucky the computer one.")
+                break
+
+
