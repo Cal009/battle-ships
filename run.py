@@ -73,6 +73,9 @@ class Board:
             board[ship_row][ship_column] = "X"
 
     def count_hit_ships(self, board):
+        """
+        This will count each hit on a ship and increment the count number by 1 each time
+        """
         count = 0
         for row in board:
             for column in row:
@@ -80,4 +83,6 @@ class Board:
                     count += 1
         return count
     
-    
+    def play_game(self, player_name):
+        self.computer_create_ships(self.computer_board)
+        self.player_create_ships(self.player_board, player_name)
