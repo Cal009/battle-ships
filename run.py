@@ -13,6 +13,9 @@ class Board:
         }
 
     def print_board(self, board, board_name, player_name, show_ships=False):
+        """
+        Thsi will print the board to the terminal
+        """
         print(f"\n{board_name} - {player_name}")
         print(" A B C D E F G H")
         print("~" * 30)
@@ -25,6 +28,10 @@ class Board:
             row_number += 1
 
     def get_ship_location(self):
+        """
+        This allows the string to ask for data regarding the coordinates of the ships
+        Returning an error if not a valid letter or number
+        """
         while True:
             try:
                 row = input("Enter the row of the ship: ")
@@ -32,7 +39,7 @@ class Board:
                     row = int(row) - 1
                     break
             except ValueError:
-                print("Enter a valid letter between 1-8")
+                print("Enter a valid letter between A-H")
         while True:
             try:
                 column = input("Enter the column of the ship: ").upper()
@@ -44,6 +51,9 @@ class Board:
                 return row, column
             
     def computer_create_ships(self, board):
+        """
+        This creates the ships for the computer and randomises the locations
+        """
         for ship in range(5):
             ship_row, ship_column = randint(0,7), randint(0,7)
             while board[ship_row][ship_column] == "X":
@@ -51,6 +61,9 @@ class Board:
                 board[ship_row][ship_column] = "X"
 
     def player_create_ships(self, board, player_name):
+        """
+        This gives the user the ability to choose the locations of their ships on the board
+        """
         for ship in range(5):
             self.print_board(board, player_name, "this is your board: ", show_ships=True)
             ship_row,ship_column = self.get_ship_location()
