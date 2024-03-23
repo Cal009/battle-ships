@@ -47,3 +47,11 @@ The player is given 15 turns to attmept to hit all 5 ships. If they dont manage 
 ### Gameover
 
 - After the moves are up the game will end.
+
+![game_over](assets/images/game_over.png)
+
+### Errors
+
+- If the user enters a coordinate more than once then the terminal will inform the user and ask it to retry
+
+![errors](assets/images/error_code.png)
