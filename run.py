@@ -37,7 +37,7 @@ class Board:
         """
         while True:
             try:
-                row = input("\nEnter the grid row: ")
+                row = input("\nEnter the grid row:\n")
                 if row in '12345678':
                     row = int(row) - 1
                     break
@@ -48,7 +48,7 @@ class Board:
 
         while True:
             try:
-                column = input("\nEnter the grid column: ").upper()
+                column = input("\nEnter the grid column:\n").upper()
                 if column and column in 'ABCDEFGH':
                     column = self.letters_to_numbers[column]
                     break
@@ -192,7 +192,7 @@ previous attempts")
 
     while not player_name.isalpha():
         print("Invalid input. Should contain only alphabetical characters.")
-        player_name = input("Enter your name: ")
+        player_name = input("Enter your name:\n")
 
     game = Board()
     print("~" * 25)
