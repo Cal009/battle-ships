@@ -67,3 +67,9 @@ def run_game():
     turns = 10
     while turns > 0:
         GameBoard.print_board(user_guess_board)
+        """ This will get the user input """
+        user_x_row, user_y_column = Battleship.get_user_input(object)
+        """ Then checks for any duplicate choices and prints necessary feedback to the user """
+        while user_guess_board.board[user_x_row][user_y_column] == "-" or user_guess_board.board[user_x_row][user_y_column] == "X":
+            print("You guessed that one already, choose again.")
+            user_x_row, user_y_column = Battleship.get_user_input(object)
