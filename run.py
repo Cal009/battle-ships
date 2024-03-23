@@ -12,6 +12,19 @@ class Board:
             {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7}
         }
 
+    def print_board(self, board, board_name, player_name, show_ships=False):
+        print(f"\n{board_name} - {player_name}")
+        print(" A B C D E F G H")
+        print("~" * 30)
+        row_number = 1
+        for i in range(8):
+            row = board[i]
+            if show_ships:
+                row = [cell if cell == "X" else "" for cell in row]
+            print("%d|%s|" % (row_number, "|".join(row)))
+            row_number += 1
+        
+
 #     def print_board(self):
 #         """
 #         This creates the board itself, putting in spacers in the board grid
