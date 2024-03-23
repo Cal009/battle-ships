@@ -6,8 +6,8 @@ class Board:
     def __init__(self):
         self.player_board = [[" "] * 8 for _ in range(8)]
         self.computer_board = [[" "] * 8 for _ in range(8)]
-        self.player_guess = [[" "] * 8 for _ in range(8)]
-        self.computer_guess = [[" "] * 8 for _ in range(8)]
+        self.player_guess_board = [[" "] * 8 for _ in range(8)]
+        self.computer_guess_board = [[" "] * 8 for _ in range(8)]
         self.letters_to_numbers = {
             "A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7
         }
@@ -17,13 +17,13 @@ class Board:
         Thsi will print the board to the terminal
         """
         print(f"\n{board_name} - {player_name}")
-        print(" A B C D E F G H")
+        print("  A B C D E F G H")
         print("~" * 30)
         row_number = 1
         for i in range(8):
             row = board[i]
             if show_ships:
-                row = [cell if cell == "X" else "" for cell in row]
+                row = [cell if cell == "X" else " " for cell in row]
             print("%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
 
@@ -58,7 +58,7 @@ class Board:
             ship_row, ship_column = randint(0,7), randint(0,7)
             while board[ship_row][ship_column] == "X":
                 ship_row, ship_column = self.get_ship_location()
-                board[ship_row][ship_column] = "X"
+            board[ship_row][ship_column] = "X"
 
     def player_create_ships(self, board, player_name):
         """
@@ -66,7 +66,7 @@ class Board:
         """
         for ship in range(5):
             self.print_board(board, player_name, "this is your board: ", show_ships=True)
-            ship_row,ship_column = self.get_ship_location()
+            ship_row, ship_column = self.get_ship_location()
             while board[ship_row][ship_column] == "X":
                 print("That location is already taken, choose another")
                 ship_row, ship_column = self.get_ship_location()
@@ -97,7 +97,7 @@ class Board:
             prints if already chosen before
             """
             self.print_board(self.player_guess_board, player_name, "This is your board: ")
-            self.print_board(self.computer_guess_board, "ComputerBoard", "Computer")
+            self.print_board(self.computer_guess_board, "Computer Board", "Computer")
 
             while True:
                 print("\nGuess a battleship location")
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     print("~" * 30)
     print("\nYour objective is to sink all 5 of your opponents ships")
     print("To do this you must enter in grid coordinates at the requested time.")
-    print("Toget started please enter your name below...\n")
+    print("To get started please enter your name below...\n")
     player_name = input("Enter your name: ")
 
     game = Board()
