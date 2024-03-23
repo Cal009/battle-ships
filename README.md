@@ -58,6 +58,29 @@ The player is given 15 turns to attmept to hit all 5 ships. If they dont manage 
 
 ## Data Model
 
-I decided to use a Board class as my model.
+I decided to use a Board class as my data model.
 
 The board class stores the board size, the number of ships, the position of the ships, the guesses against the board. It stores the players name too.
+
+This class also has methods to help play the game such as print methods to print out the board and to provide visual aid with text separator.
+
+## Testing
+
+I have manually tested my project by completing the following:
+- Passed the code through PEP8 validator and there are no errors showing.
+- Given the inputs invalid values, numbers out of bounds, strings instead of integers. They all work fine.
+- It was tested numerous times throughout deployment in my own terminal and the Code institute Heroku terminal
+
+## Bugs
+
+- I encountered an issue with using external add ons for fonts, the format kept coming back incorrectly and unreadable. I was not able to fix this and therefore made the decision to leave it out this project.
+- I ran into a few code related issues but these were mainly single digit typos or curly braces in the wrong places.
+- My original code at the start was not working the way I intended so I decided to rewrite the majority of the code again using points from the code I had already written and this then achieved the desired outcome.
+
+## Validator Testing
+
+- PEP8 was used to check for errors in the code and it returned with no errors or issues.
+
+## Deployment
+
+- This project was deployed using the code Institute mock terminal for Heroku
