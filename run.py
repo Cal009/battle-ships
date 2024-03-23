@@ -71,3 +71,13 @@ class Board:
                 print("That location is already taken, choose another")
                 ship_row, ship_column = self.get_ship_location()
             board[ship_row][ship_column] = "X"
+
+    def count_hit_ships(self, board):
+        count = 0
+        for row in board:
+            for column in row:
+                if column == "X":
+                    count += 1
+        return count
+    
+    
