@@ -32,26 +32,23 @@ class Board:
     def get_ship_location(self):
         while True:
             try:
-                row = input("\nEnter the row of the ship: ")
+                row = input("\nEnter the grid row: ")
                 if row in '12345678':
                     row = int(row) - 1
                     break
                 else:
-                    raise ValueError(print("Error: \
-                            Enter a valid letter between 1-8"))
+                    raise ValueError("Valid numbers: 1-8")
             except ValueError as e:
                 print(e)
 
         while True:
             try:
-                column = input("\nEnter the column of \
-                               the ship: ").upper()
+                column = input("\nEnter the grid column: ").upper()
                 if column in 'ABCDEFGH':
                     column = self.letters_to_numbers[column]
                     break
                 else:
-                    raise ValueError("Error: Enter a valid letter \
-                                     between A-H")
+                    raise ValueError("Invalid input. Valid letters: A-H")
             except ValueError as e:
                 print(e)
 
@@ -116,7 +113,8 @@ class Board:
 
             self.print_board(self.player_guess_board, player_name,
                              "This is your board: ")
-            self.print_board(self.computer_guess_board, "Computer Board")
+            self.print_board(self.computer_guess_board, "This board is",
+                             "The Computer's board: ")
 
             while True:
                 print("\nGuess a battleship location: ")
@@ -165,13 +163,19 @@ if __name__ == "__main__":
     print("Welcome to Battleships")
     print("~" * 30)
     print("\nYour objective is to sink all 5 of your opponents ships")
-    print("To do this you must enter in grid coordinates at\
-          the requested time.")
-    print("To get started please enter your name below...\n")
+    print("You must enter in grid coordinates at the requested time.\n")
+    print("~" * 55)
+    print("\nFirst you will have to choose where your ships \
+go on the board.")
+    print("This can be done by choosing the row and column value")
+    print("\nYou will see two labelled boards. These will appear \
+once your\nships are in place. After each attempt \
+your choices will be saved onto your own board so you can see your\n \
+previous attempts")
+    print("\nTo get started please enter your name below...\n")
     player_name = input("Enter your name: ")
     while not player_name.isalpha():
-        print("Invalid input. Your name should contain only\
-              alphabetical characters.")
+        print("Invalid input. Should contain onlyalphabetical characters.")
         player_name = input("Enter your name: ")
 
     game = Board()
