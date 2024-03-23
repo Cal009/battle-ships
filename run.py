@@ -103,7 +103,7 @@ class Board:
         self.player_create_ships(self.player_board, player_name)
 
         turn_count = 0
-        moves_left = 10
+        moves_left = 15
 
         while True:
             """
