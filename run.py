@@ -23,18 +23,26 @@ class Board:
                 row = [cell if cell == "X" else "" for cell in row]
             print("%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
-        
 
-#     def print_board(self):
-#         """
-#         This creates the board itself, putting in spacers in the board grid
-#         """
-#         print("  A B C D E F G H")
-#         print("  ~~~~~~~~~~~~~~~")
-#         row_number = 1
-#         for row in self.board:
-#             print("%d|%s|" % (row_number, "|".join(row)))
-#             row_number += 1
+    def get_ship_location(self):
+        while True:
+            try:
+                row = input("Enter the row of the ship: ")
+                if row in '12345678':
+                    row = int(row) - 1
+                    break
+            except ValueError:
+                print("Enter a valid letter between 1-8")
+        while True:
+            try:
+                column = input("Enter the column of the ship: ").upper()
+                if column in 'ABCDEFGH':
+                    column = self.letters_to_numbers[column]
+                    break
+            except KeyError:
+                print("Enter a valid letter between A-H")
+                return row, column
+        
 
 # class Battleship:
 #     def __init__(self, board):
