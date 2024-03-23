@@ -188,7 +188,7 @@ previous attempts")
     print("If you miss it will show as '-' if you hit it will be 'X'")
     print("\nTo get started please enter your name below...\n")
 
-    player_name = input("Enter your name:/n")
+    player_name = input("Enter your name:\n")
 
     while not player_name.isalpha():
         print("Invalid input. Should contain only alphabetical characters.")
