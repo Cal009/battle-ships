@@ -9,7 +9,7 @@ class Board:
         self.player_guess = [[" "] * 8 for _ in range(8)]
         self.computer_guess = [[" "] * 8 for _ in range(8)]
         self.letters_to_numbers = {
-            {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7}
+            "A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7
         }
 
     def print_board(self, board, board_name, player_name, show_ships=False):
