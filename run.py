@@ -14,9 +14,9 @@ class Board:
 
     def print_board(self, board, board_name, player_name, show_ships=False):
         """
-        Thsi will print the board to the terminal
+        This will print the board to the terminal
         """
-        print(f"\n{board_name} - {player_name}")
+        print(f"{board_name} - {player_name}")
         print("  A B C D E F G H")
         print("~" * 30)
         row_number = 1
@@ -30,15 +30,15 @@ class Board:
     def get_ship_location(self):
         while True:
             try: 
-                row = input("Enter the row of the ship: ")
+                row = input("\nEnter the row of the ship: ")
                 if row in '12345678':
                     row = int(row) - 1
                     break
             except ValueError:
-                print('Enter a valid letter between A-H')
+                print('Enter a valid letter between 1-8')
         while True:
             try: 
-                column = input("Enter the column of the ship: ").upper()
+                column = input("\nEnter the column of the ship: ").upper()
                 if column in 'ABCDEFGH':
                     column = self.letters_to_numbers[column]
                     break
@@ -64,7 +64,7 @@ class Board:
             self.print_board(board, player_name, "this is your board: ", show_ships=True)
             ship_row, ship_column = self.get_ship_location()
             while board[ship_row][ship_column] == "X":
-                print("That location is already taken, choose another")
+                print("\nThat location is already taken, choose another")
                 ship_row, ship_column = self.get_ship_location()
             board[ship_row][ship_column] = "X"
 
@@ -86,26 +86,33 @@ class Board:
         self.computer_create_ships(self.computer_board)
         self.player_create_ships(self.player_board, player_name)
 
+        turn_count = 0
+        moves_left = 10
+
         while True:
             """
             Creates loop checking for coorinatest given by player to check for if
             a ship is hit or not
             prints if already chosen before
             """
+            if moves_left == 0:
+                print("Game over! You have reached the maximum number of turns.")
+                break
+
             self.print_board(self.player_guess_board, player_name, "This is your board: ")
             self.print_board(self.computer_guess_board, "Computer Board", "Computer")
 
             while True:
-                print("\nGuess a battleship location")
+                print("\nGuess a battleship location: ")
                 row, column = self.get_ship_location()
                 if self.player_guess_board[row][column] == "-":
-                    print("You guessed that one already.")
+                    print("\nYou guessed that one already.")
                 elif self.computer_board[row][column] == "X":
-                    print("Hit!")
+                    print("\nHit!")
                     self.player_guess_board[row][column] = "X"
                     break
                 else:
-                    print("You Missed!")
+                    print("\nYou Missed!")
                     self.player_guess_board[row][column] = "-"
                     break
 
@@ -130,6 +137,11 @@ class Board:
             if self.count_hit_ships(self.computer_guess_board) == 5:
                 print("Unlucky the computer one.")
                 break
+
+            turn_count += 1
+            moves_left -= 1
+
+            print(f"\nMoves left: {moves_left}")
 
 if __name__ == "__main__":
     print("~" * 30)
