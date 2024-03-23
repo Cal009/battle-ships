@@ -33,6 +33,10 @@ class Battleship:
             return self.board
         
     def get_user_input(self):
+        """
+        This creates the user input options and prevents incorrect values
+        being entered
+        """
         try:
             x_row = input("Enter the row of the ship: ")
             while x_row not in '12345678':
@@ -47,3 +51,12 @@ class Battleship:
         except ValueError:
             print("Not a valid input")
             return self.get_user_input()
+        
+    def count_hit_ships(self):
+        hit_ships = 0
+        for row in self.board:
+            for column in row:
+                if column == "X":
+                    hit_ships += 1
+        return hit_ships
+    
