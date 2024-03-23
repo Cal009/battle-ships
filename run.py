@@ -62,8 +62,8 @@ class Battleship:
         return hit_ships
     
 def run_game():
-    computer_board = GameBoard([[" " for _ in range(8)] for _ in range(8)])
-    user_guess_board = GameBoard([[" " for _ in range(8)] for _ in range(8)])
+    computer_board = GameBoard([[" "] * 8 for i in range(8)])
+    user_guess_board = GameBoard([[" "] * 8 for i in range(8)])
     Battleship.create_ships(computer_board)
     turns = 10
     while turns > 0:
