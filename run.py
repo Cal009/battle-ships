@@ -28,27 +28,23 @@ class Board:
             row_number += 1
 
     def get_ship_location(self):
-        """
-        This allows the string to ask for data regarding the coordinates of the ships
-        Returning an error if not a valid letter or number
-        """
         while True:
-            try:
+            try: 
                 row = input("Enter the row of the ship: ")
                 if row in '12345678':
                     row = int(row) - 1
                     break
             except ValueError:
-                print("Enter a valid letter between A-H")
+                print('Enter a valid letter between A-H')
         while True:
-            try:
+            try: 
                 column = input("Enter the column of the ship: ").upper()
                 if column in 'ABCDEFGH':
                     column = self.letters_to_numbers[column]
                     break
             except KeyError:
-                print("Enter a valid letter between A-H")
-                return row, column
+                print('Enter a valid letter between A-H')
+        return row, column
             
     def computer_create_ships(self, board):
         """
