@@ -135,4 +135,14 @@ class Board:
                 print("Unlucky the computer one.")
                 break
 
+if __name__ == "__main__":
+    print("~" * 30)
+    print("Welcome to Battleships")
+    print("~" * 30)
+    print("\nYour objective is to sink all 5 of your opponents ships")
+    print("To do this you must enter in grid coordinates at the requested time.")
+    print("Toget started please enter your name below...\n")
+    player_name = input("Enter your name: ")
 
+    game = Board()
+    game.play_game(player_name)
