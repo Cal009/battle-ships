@@ -84,5 +84,32 @@ class Board:
         return count
     
     def play_game(self, player_name):
+        """
+        This initiates creating the ships and generating the boards
+        """
         self.computer_create_ships(self.computer_board)
         self.player_create_ships(self.player_board, player_name)
+
+        while True:
+            self.print_board(self.player_guess_board, player_name, "This is your board: ")
+            self.print_board(self.computer_guess_board, "ComputerBoard", "Computer")
+
+            while True:
+                print("\nGuess a battleship location")
+                row, column = self.get_ship_location()
+                if self.player_guess_board[row][column] == "-":
+                    print("You guessed that one already.")
+                elif self.computer_board[row][column] == "X":
+                    print("Hit!")
+                    self.player_guess_board[row][column] = "X"
+                    break
+                else:
+                    print("You Missed!")
+                    self.player_guess_board[row][column] = "-"
+                    break
+
+            if self.count_hit_ships(self.player_guess_board) == 5:
+                print("Congratulations, you win!")
+                break
+
+            
