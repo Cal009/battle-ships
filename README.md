@@ -84,3 +84,11 @@ I have manually tested my project by completing the following:
 ## Deployment
 
 - This project was deployed using the code Institute mock terminal for Heroku
+
+To deploy your own project:
+- Fork or clone this repository
+- Create a new Heroku app
+- Set the buildbacks to Python and NodeJS in that order
+- Link the Heroku app to the repository
+- Click on deploy
+
