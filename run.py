@@ -31,6 +31,10 @@ class Board:
         print("~" * 18)
 
     def get_ship_location(self):
+        """
+        Allows for input of coordinates to place ships.
+        Error codes in place for incorrect inputs
+        """
         while True:
             try:
                 row = input("\nEnter the grid row: ")
@@ -165,6 +169,9 @@ number of turns.")
 
 
 if __name__ == "__main__":
+    """
+    Multiple Strings for instructions and spacing
+    """
     print("~" * 30)
     print("Welcome to Battleships")
     print("~" * 30)
@@ -180,7 +187,9 @@ your choices will be saved onto your own board so you can see your\n \
 previous attempts")
     print("If you miss it will show as '-' if you hit it will be 'X'")
     print("\nTo get started please enter your name below...\n")
+
     player_name = input("Enter your name: ")
+
     while not player_name.isalpha():
         print("Invalid input. Should contain only alphabetical characters.")
         player_name = input("Enter your name: ")
