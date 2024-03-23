@@ -1,4 +1,4 @@
-from random import random
+from random import randint
 """
 Creating the game board as the main area
 """
@@ -42,6 +42,14 @@ class Board:
             except KeyError:
                 print("Enter a valid letter between A-H")
                 return row, column
+            
+    def computer_create_ships(self, board):
+        for ship in range(5):
+            ship_row, ship_column = randint(0,7), randint(0,7)
+            while board[ship_row][ship_column] == "X":
+                ship_row, ship_column = self.get_ship_location()
+                board[ship_row][ship_column] = "X"
+
         
 
 # class Battleship:
