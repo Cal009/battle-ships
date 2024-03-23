@@ -55,3 +55,9 @@ The player is given 15 turns to attmept to hit all 5 ships. If they dont manage 
 - If the user enters a coordinate more than once then the terminal will inform the user and ask it to retry
 
 ![errors](assets/images/error_code.png)
+
+## Data Model
+
+I decided to use a Board class as my model.
+
+The board class stores the board size, the number of ships, the position of the ships, the guesses against the board. It stores the players name too.
