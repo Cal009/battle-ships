@@ -175,13 +175,13 @@ if __name__ == "__main__":
     print("~" * 30)
     print("Welcome to Battleships")
     print("~" * 30)
-    print("\nYour objective is to sink all 5 of your opponents ships")
-    print("You must enter in grid coordinates at the requested time.\n")
+    print("Your objective is to sink all 5 of your opponents ships")
+    print("You must enter in grid coordinates at the requested time.")
     print("~" * 30)
-    print("\nFirst you will have to choose where your ships \
-go on the board.")
+    print("First you will have to choose where your ships \
+go on the board")
     print("This can be done by choosing the row and column value")
-    print("\nYou will see two labelled boards. These will appear \
+    print("You will see two labelled boards. These will appear \
 once your\nships are in place. After each attempt \
 your choices will be saved onto your own board so you can see your\n \
 previous attempts")
