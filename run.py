@@ -73,3 +73,21 @@ def run_game():
         while user_guess_board.board[user_x_row][user_y_column] == "-" or user_guess_board.board[user_x_row][user_y_column] == "X":
             print("You guessed that one already, choose again.")
             user_x_row, user_y_column = Battleship.get_user_input(object)
+            """ This checks if its a hit or miss """
+            if computer_board.board[user_x_row][user_y_column] == "X":
+                print("You hit one of my battlehips!")
+                user_guess_board.board[user_x_row][user_y_column] = "X"
+            else:
+                print("You missed my battlehip!")
+                user_guess_board.board[user_x_row][user_y_column] = "-"
+            """ This checks for a win condition, if you win or lose """
+            if Battleship.count_hit_ships(user_guess_board) == 5:
+                print("You hit all 5 battleships")
+                break
+            else:
+                turns -= 1
+                print(f"You have {turns} turns remaining")
+                if turns == 0:
+                    print("You ran out of turns!")
+                    GameBoard.print_board(user_guess_board)
+                    break
