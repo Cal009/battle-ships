@@ -19,8 +19,8 @@ class Board:
         This will print the board to the terminal
         """
         print(f"{board_name} - {player_name}")
+        print("~" * 18)
         print("  A B C D E F G H")
-        print("~" * 30)
         row_number = 1
         for i in range(8):
             row = board[i]
@@ -28,6 +28,7 @@ class Board:
                 row = [cell if cell == "X" else " " for cell in row]
             print("%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
+        print("~" * 18)
 
     def get_ship_location(self):
         while True:
@@ -44,7 +45,7 @@ class Board:
         while True:
             try:
                 column = input("\nEnter the grid column: ").upper()
-                if column in 'ABCDEFGH':
+                if column and column in 'ABCDEFGH':
                     column = self.letters_to_numbers[column]
                     break
                 else:
@@ -107,8 +108,8 @@ class Board:
             prints if already chosen before
             """
             if moves_left == 0:
-                print("Game over! You have reached the maximum\
-                    number of turns.")
+                print("Game over! You have reached the maximum \
+number of turns.")
                 break
 
             self.print_board(self.player_guess_board, player_name,
@@ -122,11 +123,15 @@ class Board:
                 if self.player_guess_board[row][column] == "-":
                     print("\nYou guessed that one already.")
                 elif self.computer_board[row][column] == "X":
-                    print("\nHit!")
+                    print("^" * 30)
+                    print("Hit!")
+                    print("~" * 14)
                     self.player_guess_board[row][column] = "X"
                     break
                 else:
-                    print("\nYou Missed!")
+                    print("^" * 30)
+                    print("You Missed!")
+                    print("~" * 14)
                     self.player_guess_board[row][column] = "-"
                     break
 
@@ -155,7 +160,8 @@ class Board:
             turn_count += 1
             moves_left -= 1
 
-            print(f"\nMoves left: {moves_left}")
+            print(f"Moves left: {moves_left}")
+            print("~" * 14)
 
 
 if __name__ == "__main__":
@@ -164,7 +170,7 @@ if __name__ == "__main__":
     print("~" * 30)
     print("\nYour objective is to sink all 5 of your opponents ships")
     print("You must enter in grid coordinates at the requested time.\n")
-    print("~" * 55)
+    print("~" * 30)
     print("\nFirst you will have to choose where your ships \
 go on the board.")
     print("This can be done by choosing the row and column value")
@@ -172,11 +178,13 @@ go on the board.")
 once your\nships are in place. After each attempt \
 your choices will be saved onto your own board so you can see your\n \
 previous attempts")
+    print("If you miss it will show as '-' if you hit it will be 'X'")
     print("\nTo get started please enter your name below...\n")
     player_name = input("Enter your name: ")
     while not player_name.isalpha():
-        print("Invalid input. Should contain onlyalphabetical characters.")
+        print("Invalid input. Should contain only alphabetical characters.")
         player_name = input("Enter your name: ")
 
     game = Board()
+    print("~" * 25)
     game.play_game(player_name)
