@@ -34,16 +34,22 @@ class Board:
                 if row in '12345678':
                     row = int(row) - 1
                     break
-            except ValueError:
-                print('Enter a valid letter between 1-8')
+                else:
+                    raise ValueError(print("Error: Enter a valid letter between 1-8"))
+            except ValueError as e:
+                print(e)
+        
         while True:
             try: 
                 column = input("\nEnter the column of the ship: ").upper()
                 if column in 'ABCDEFGH':
                     column = self.letters_to_numbers[column]
                     break
-            except KeyError:
-                print('Enter a valid letter between A-H')
+                else:
+                    raise ValueError("Error: Enter a valid letter between A-H")
+            except ValueError as e:
+                print(e)
+
         return row, column
             
     def computer_create_ships(self, board):
@@ -151,6 +157,9 @@ if __name__ == "__main__":
     print("To do this you must enter in grid coordinates at the requested time.")
     print("To get started please enter your name below...\n")
     player_name = input("Enter your name: ")
+    while not player_name.isalpha():
+        print("Invalid input. Your name should contain only alphabetical characters.")
+        player_name = input("Enter your name: ")
 
     game = Board()
     game.play_game(player_name)
