@@ -45,7 +45,7 @@ class Board:
                     row = int(row) - 1
                     break
                 else:
-                    raise ValueError("Valid numbers: 1-8")
+                    raise ValueError("Invalid input. Valid numbers: 1-8")
             except ValueError as e:
                 print(e)
 
