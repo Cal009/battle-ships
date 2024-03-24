@@ -92,3 +92,9 @@ To deploy your own project:
 - Link the Heroku app to the repository
 - Click on deploy
 
+## Credits
+
+- Code Institute for the terminal
+- Wikipedia for the details of the game
+- ChatGPT helped with error code resolving, pointing out where the error resides from and a potential way to mend it.
+- I found another GitHub user by the name 'dmoisset' who had also created a Battleships game in python. I found this user on safari after searching an example of a battlship game. I liked the code that created the board and so I decided to give it my own unique spin on it whilst using the code to set it up.
