@@ -5,6 +5,9 @@ Creating the game board as the main area
 
 
 class Board:
+    """
+    This code was sourced from Knowledge Mavens on Youtube"
+    """
     def __init__(self):
         self.player_board = [[" "] * 8 for _ in range(8)]
         self.computer_board = [[" "] * 8 for _ in range(8)]
@@ -146,6 +149,7 @@ number of turns.")
             while True:
                 """
                 Creates loop to check for hit ships or not
+                Credit to Knowledge Mavens, Youtube.
                 """
                 row, column = randint(0, 7), randint(0, 7)
                 while self.computer_guess_board[row][column] == "-":
