@@ -62,7 +62,7 @@ I decided to use a Board class as my data model.
 
 The board class stores the board size, the number of ships, the position of the ships, the guesses against the board. It stores the players name too.
 
-This class also has methods to help play the game such as print methods to print out the board and to provide visual aid with text separator.
+This class also has methods to help play the game such as print methods to print out the board and to provide visual aid with text separators.
 
 ## Testing
 
@@ -98,3 +98,4 @@ To deploy your own project:
 - Wikipedia for the details of the game
 - ChatGPT helped with error code resolving, pointing out where the error resides from and a potential way to mend it.
 - I found another GitHub user by the name 'dmoisset' who had also created a Battleships game in python. I found this user on safari after searching an example of a battlship game. I liked the code that created the board and so I decided to give it my own unique spin on it whilst using the code to set it up.
+- The youtuber 'Knowledge Mavens' provided insight into different ways of creating the battleships game. I used part of his code to achieve the outcome I desired. I did then tweak it after to fit in with my code/project.
