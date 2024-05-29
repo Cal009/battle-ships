@@ -41,7 +41,7 @@ class Board:
         while True:
             try:
                 row = input("\nEnter the grid row:\n")
-                if row in '12345678':
+                if row in "'1', '2', '3', '4', '5', '6', '7', '8'":
                     row = int(row) - 1
                     break
                 else:
@@ -52,7 +52,7 @@ class Board:
         while True:
             try:
                 column = input("\nEnter the grid column:\n").upper()
-                if column and column in 'ABCDEFGH':
+                if column and column in "'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'":
                     column = self.letters_to_numbers[column]
                     break
                 else:
