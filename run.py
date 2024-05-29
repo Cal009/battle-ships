@@ -5,9 +5,9 @@ Creating the game board as the main area
 
 
 class Board:
-    """
-    This code was sourced from Knowledge Mavens on Youtube"
-    """
+
+    # This code was sourced from Knowledge Mavens on Youtube"
+
     def __init__(self):
         self.player_board = [[" "] * 8 for _ in range(8)]
         self.computer_board = [[" "] * 8 for _ in range(8)]
@@ -18,9 +18,11 @@ class Board:
         }
 
     def print_board(self, board, board_name, player_name, show_ships=False):
-        """
-        This will print the board to the terminal
-        """
+        
+        # This will print the board to the terminal
+        # Prints both the board and the player name to the terminal
+        # Creating an 8x8 board
+        
         print(f"{board_name} - {player_name}")
         print("~" * 18)
         print("  A B C D E F G H")
@@ -34,10 +36,11 @@ class Board:
         print("~" * 18)
 
     def get_ship_location(self):
-        """
-        Allows for input of coordinates to place ships.
-        Error codes in place for incorrect inputs
-        """
+        
+        # Allows for input of coordinates to place ships.
+        # Error codes in place for incorrect inputs
+        # Checks each input for any errors or correct values to display
+        
         while True:
             try:
                 row = input("\nEnter the grid row:\n")
@@ -63,9 +66,10 @@ class Board:
         return row, column
 
     def computer_create_ships(self, board):
-        """
-        This creates the ships for the computer and randomises the locations
-        """
+        
+        # This creates the ships for the computer and randomises the locations
+        # The Function creates 5 ships
+        
         for ship in range(5):
             ship_row, ship_column = randint(0, 7), randint(0, 7)
             while board[ship_row][ship_column] == "X":
@@ -73,10 +77,12 @@ class Board:
             board[ship_row][ship_column] = "X"
 
     def player_create_ships(self, board, player_name):
-        """
-        This gives the user the ability to choose the locations
-        of their ships on the board
-        """
+        
+        # This gives the user the ability to choose the locations
+        # of their ships on the board
+        # Clear String to show the player board and checks if ships are
+        # already in that location
+        
         for ship in range(5):
             self.print_board(board, player_name, "this is your board: ",
                              show_ships=True)
@@ -87,10 +93,10 @@ class Board:
             board[ship_row][ship_column] = "X"
 
     def count_hit_ships(self, board):
-        """
-        This will count each hit on a ship and increment the
-        count number by 1 each time
-        """
+        
+        # This will count each hit on a ship and increment the
+        # count number by 1 each time
+        
         count = 0
         for row in board:
             for column in row:
@@ -99,9 +105,9 @@ class Board:
         return count
 
     def play_game(self, player_name):
-        """
-        This initiates creating the ships and generating the boards
-        """
+        
+        # This initiates creating the ships and generating the boards
+        
         self.computer_create_ships(self.computer_board)
         self.player_create_ships(self.player_board, player_name)
 
@@ -109,14 +115,15 @@ class Board:
         moves_left = 15
 
         while True:
-            """
-            Creates loop checking for coorinatest given by player to
-            check for if a ship is hit or not
-            prints if already chosen before
-            """
+            
+            # Creates loop checking for coordinates given by player to
+            # check if a ship is hit or not
+            # prints if already chosen before
+            # Once all moves have been taken game will end
+            
             if moves_left == 0:
                 print("Game over! You have reached the maximum \
-number of turns.")
+                      number of turns.")
                 break
 
             self.print_board(self.player_guess_board, player_name,
@@ -142,15 +149,18 @@ number of turns.")
                     self.player_guess_board[row][column] = "-"
                     break
 
+            # This checks for the amount of hits that have been made and
+            # and congratulates the player on their victory
+
             if self.count_hit_ships(self.player_guess_board) == 5:
                 print("Congratulations, you win!")
                 break
 
             while True:
-                """
-                Creates loop to check for hit ships or not
-                Credit to Knowledge Mavens, Youtube.
-                """
+                
+                # Creates loop to check for hit ships or not
+                # Credit to Knowledge Mavens, Youtube.
+                
                 row, column = randint(0, 7), randint(0, 7)
                 while self.computer_guess_board[row][column] == "-":
                     row, column = randint(0, 7), randint(0, 7)
@@ -173,9 +183,9 @@ number of turns.")
 
 
 if __name__ == "__main__":
-    """
-    Multiple Strings for instructions and spacing
-    """
+    
+    # Multiple Strings for instructions and spacing
+    
     print("~" * 30)
     print("Welcome to Battleships")
     print("~" * 30)
@@ -183,12 +193,12 @@ if __name__ == "__main__":
     print("You must enter in grid coordinates at the requested time.")
     print("~" * 30)
     print("First you will have to choose where your ships \
-go on the board")
+          go on the board")
     print("This can be done by choosing the row and column value")
     print("You will see two labelled boards. These will appear \
-once your\nships are in place. After each attempt \
-your choices will be saved onto your own board so you can see your\n \
-previous attempts")
+          once your\nships are in place. After each attempt \
+          your choices will be saved onto your own board so you can see your\n \
+          previous attempts")
     print("If you miss it will show as '-' if you hit it will be 'X'")
     print("\nTo get started please enter your name below...\n")
 
