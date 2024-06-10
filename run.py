@@ -1,7 +1,8 @@
-from random import randint
 """
 Creating the game board as the main area
 """
+
+from random import randint
 
 
 class Board:
@@ -213,7 +214,7 @@ if __name__ == "__main__":
 
         # Checks for invalid characters used during entering
         # the name and returns error code if necessary.
-        
+
         print("Invalid input. Should contain only alphabetical characters.")
         player_name = input("Enter your name:\n")
 
