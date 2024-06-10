@@ -96,6 +96,8 @@ class Board:
         
         # This will count each hit on a ship and increment the
         # count number by 1 each time
+        # It starts the count at 0 and increases by 1 after
+        # each guess.
         
         count = 0
         for row in board:
@@ -119,7 +121,8 @@ class Board:
             # Creates loop checking for coordinates given by player to
             # check if a ship is hit or not
             # prints if already chosen before
-            # Once all moves have been taken game will end
+            # Once all moves have been taken game will end, printing
+            # clearly to the terminal.
             
             if moves_left == 0:
                 print("Game over! You have reached the maximum \
@@ -185,6 +188,8 @@ class Board:
 if __name__ == "__main__":
     
     # Multiple Strings for instructions and spacing
+    # using ~ to create a clear board outline for 
+    # better user experience.
     
     print("~" * 30)
     print("Welcome to Battleships")
@@ -205,6 +210,10 @@ if __name__ == "__main__":
     player_name = input("Enter your name:\n")
 
     while not player_name.isalpha():
+
+        # Checks for invalid characters used during entering
+        # the name and returns error code if necessary.
+        
         print("Invalid input. Should contain only alphabetical characters.")
         player_name = input("Enter your name:\n")
 
