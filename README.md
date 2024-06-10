@@ -18,41 +18,53 @@ The computer's ships are randomly generated and are hidden from the player to av
 
 The player is given 15 turns to attmept to hit all 5 ships. If they dont manage to do this then the game ends. If they hit all 5 or the computer hits all 5 then the game also comes to and end congratulating the winner.
 
+## User Experience
+
+#### Visitors to this website are looking for:
+
+- A simple game of battleships, not overcomplicated whilst remaining visually pleasing. The clear instructions at the start create a fair experience as every user is given access to the full rule set before they start playing regardless if they have played before. This was decided due to a few people who I spoke to regarding testing the game who didn't know exactly how to play.
+
+#### Creating a clear board style
+
+- When designing the game I opted for the use of an external border made of "~" to make it easier for the user to see the board boundaries and to avoid any empty space that some users can cause discomfort or confusion. I tested a few different symbols/characters to see what worked best and eventually decided on the "~" due to the clear separation it made whilst looking appealing in the terminal.
+
 ## Existing features
 
 ### Instructions:
 
-- At the start of the game the instruction page gives all the information for the user to understand how to play and the layout of the game through the terminal
+- At the start of the game the instruction page gives all the information for the user to understand how to play and the layout of the game through the terminal. As seen below the title is separated from the objective and the same for the instructions. This helps with readablity as its not all squashed into one single paragraph. At the bottom it then gives the option for the player to enter their name to begin playing.
 
 ![instructions](assets/images/instructions.png)
 
 ### First Coordinate:
 
-- The user is prompted to enter their name, after pressing enter the players board is generated where they are then asked for coordinates to place their ships onto the board.
+- The user is prompted to enter their name, after pressing enter the players, and computers boards are generated. The user is then asked for coordinates to place their ships onto the board. This decision was made to allow the user full control over their ship placement giving them the feeling that they have control, if it was random then it could give the feeling that it's biased towards the computer.
 
 ![first_coordinate](assets/images/first_coordinate.png)
 
 ### Starting the game:
 
-- Once all ships have been placed onto the board the game starts and both boards appear. prompting the user to take their first guess. 
+- Once all ships have been placed onto the board the game starts and both boards appear. Prompting the user to take their first guess. They also have a clear "Moves left" at the top of the board, informing the player that they need to be careful with their guesses as they are limited.
 
 ![first_guess](assets/images/first_guess.png)
 
-### Hitting a ship
+### Hitting or missing a ship
 
 - Once you hit a ship it will be marked on the board and you will recieve a "hit" string in the terminal.
+- For missing a ship you will receieve a "-" on the board which will show you the coordinates you chose. That mark will then remain on there for the rest of the game so you don't choose them again. If the player does decide to choose them again an error code is in place to prevent this, making the played choose somewhere else. 
 
 ![hit_ship](assets/images/hit_ship.png)
 
 ### Gameover
 
-- After the moves are up the game will end.
+- After the moves are up the game will end. Displaying a message to the user making it clear they can no longer play.
 
 ![game_over](assets/images/game_over.png)
 
 ### Errors
 
-- If the user enters a coordinate more than once then the terminal will inform the user and ask it to retry
+- Error codes can appear on every area that allows for user input. This was put in place to avoid incorrect characters being used to potentially break the game or even cheat. Below is just one example of an error code and the feedback given to the user on what they should be typing instead.
+- If the user enters a coordinate more than once then the terminal will inform the user and ask it to retry.
 
 ![errors](assets/images/error_code.png)
 
